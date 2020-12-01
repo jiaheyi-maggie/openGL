@@ -1,0 +1,6 @@
+setup.py
+openGL.egg-info/PKG-INFO
+openGL.egg-info/SOURCES.txt
+openGL.egg-info/dependency_links.txt
+openGL.egg-info/requires.txt
+openGL.egg-info/top_level.txt

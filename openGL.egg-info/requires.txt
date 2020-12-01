@@ -1,0 +1,6 @@
+
+[interface]
+glumpy
+
+[tests]
+pytest
