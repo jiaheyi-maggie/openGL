@@ -30,12 +30,46 @@ edges = (
     (5, 7),
 )
 
+surfaces = (
+    (0, 1, 2, 3),
+    (0, 4, 6, 3),
+    (5, 4, 6, 7),
+    (1, 5, 7, 2),
+    (1, 5, 4, 0),
+    (2, 7, 6, 3)
+)
+
+colors = (
+    (1, 0, 0),
+    (0, 1, 0),
+    (0, 0, 1),
+    (0, 0, 0),
+    (1, 1, 1),
+    (0, 1, 1),
+    (1, 0, 0),
+    (0, 1, 0),
+    (0, 0, 1),
+    (0, 0, 0),
+    (1, 1, 1),
+    (0, 1, 1)
+)
 def Cube():
+    glBegin(GL_QUADS)
+    for surface in surfaces:
+        x = 0
+        for vertex in surface:
+            x += 1
+            glColor3fv(colors[x])
+            glVertex3fv(vertices[vertex])
+    glEnd()
+
     glBegin(GL_LINES)
     for edge in edges:
         for vertex in edge:
             glVertex3fv(vertices[vertex])
     glEnd()
+
+
 
 def main():
     pygame.init()
@@ -44,7 +78,7 @@ def main():
 
     gluPerspective(45, (display[0]/display[1]), 0.1, 50.0)
     glTranslatef(0.0, 0.0, -5)
-    glRotatef(0, 0, 0, 0)
+    glRotatef(40, 2, 0, 0)
 
     while True:
         for event in pygame.event.get():
